@@ -235,7 +235,9 @@ def make_flags(prefix, fips):
         # ML-KEM
         flags.append("--enable-mlkem")
 
-        # ML-DSA (note: to be able to use the legacy option of signing without context, pass `yes,no-ctx` as argument)
+        # ML-DSA (note: to be able to use the legacy option of signing without context, pass `yes,draft` as
+        # argument -- wolfSSL has no `no-ctx` option; `draft` defines WOLFSSL_DILITHIUM_FIPS204_DRAFT, which
+        # also switches to the pre-FIPS-204 draft signature format)
         flags.append("--enable-mldsa=yes")
 
         # disabling other configs enabled by default

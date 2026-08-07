@@ -144,8 +144,8 @@ ML-DSA
 >>> 
 >>> msg = b"This is an example message"
 >>> 
->>> sig = mldsa_priv.sign(msg)
->>> mldsa_pub.verify(sig, msg)
+>>> sig = mldsa_priv.sign(msg, ctx=b"")
+>>> mldsa_pub.verify(sig, msg, ctx=b"")
 True
 >>> 
 >>> ######## Export and Import Keys
@@ -160,6 +160,6 @@ True
 >>> mldsa_pub2 = MlDsaPublic(mldsa_type)
 >>> mldsa_pub2.decode_key(exported_pub_key)
 >>> 
->>> sig2 = mldsa_priv2.sign(msg)
->>> mldsa_pub2.verify(sig2, msg)
+>>> sig2 = mldsa_priv2.sign(msg, ctx=b"")
+>>> mldsa_pub2.verify(sig2, msg, ctx=b"")
 True
